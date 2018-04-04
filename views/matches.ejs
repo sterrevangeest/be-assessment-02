@@ -14,9 +14,9 @@
     <header>
         <nav>
             <ul>
-                <li id="matches" class="active"><a href="matches.html">Matches</a></li>
-                <li id="inbox"><a href="inbox.html">Inbox</a></li>
-                <li id="profile"><a href="profile.html">Profiel</a></li>
+                <li id="matches" class="active"><a href="/">Matches</a></li>
+                <li id="inbox"><a href="inbox">Inbox</a></li>
+                <li id="profile"><a href="profile">Profiel</a></li>
 
             </ul>
         </nav>
@@ -29,16 +29,21 @@
         <button id="filter"></button>
       </div>
       <!-- MATCHES -->
-      <article class="active"><a href="matches-detail.html">
+
+      <% for (var index = 0; index < data.length; index++) { %>
+
+      <article class="active"><a href="/<%=index%> %>">
         <div>
-          <h2>Daan</h2>
+          <h2><%= data[index].name %></h2>
           <img src="img/user4.png" alt="">
         </div>
         <div>
-          <p>"Cocktails drinken in Amsterdam, bij Tunes Bar en daarna zien we wel."</p>
-          <a class="categorie" href="#">#romantisch</a>
+          <p><%= data[index].dateIdea %></p>
+          <a class="category" href="#">#<%= data[index].category %></a>
         </div>
       </a></article>
+
+      <% } %>
     </main>
 
     <script src="js/java.js"></script>

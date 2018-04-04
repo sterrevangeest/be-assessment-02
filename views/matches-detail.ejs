@@ -19,22 +19,23 @@
 
     <main>
       <h1>Profiel</h1>
-      <a class="back" href="matches.html"><img src="img/back.svg" alt=""></a>
+
+      <a class="back" href="/"><img src="img/back.svg" alt=""></a>
       <article class="profile">
         <img src="img/user4.png" alt="">
-        <h2>Naam</h2>
-        <p> <span>23 jaar</span>, omgeving <span>Amsterdam</span> </p>
+        <h2><%= data.name %></h2>
+        <p> <span><%= data.age %></span>, omgeving <span><%= data.place %></span> </p>
       </article>
+
 
       <section class="date-ideas">
         <h3>Date ideeën</h3>
           <article>
-            <p>"Cocktails drinken in Amsterdam, bij Tunes Bar en daarna zien we wel."</p>
-            <a class="category" href="#">#romantisch</a>
+            <p><%= data.dateIdea %>"</p>
+            <a class="category" href="#">#<%= data.category %></a>
             <a href="#"> <img src="img/speech-bubble.svg" alt=""></a>
           </article>
       </section>
-
     <section>
 
 

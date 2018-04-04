@@ -110,6 +110,7 @@ main article {
   //box-shadow: 0 2px 20px 0 rgba(0, 0, 0, 0.10);
   border-radius: .6em;
   padding: .5em;
+  margin: .5em 0;
 }
 
 main article div img {
@@ -129,7 +130,7 @@ main article div:nth-child(1) {
   align-items: center;
 }
 
-main article .categorie{
+main article .category{
   background-color: #11BFC9;
   border-radius: 10em;
   padding: 0em .5em;
@@ -230,7 +231,7 @@ main .date-ideas article {
 }
 
 
-main .date-ideas article .categorie{
+main .date-ideas article .category{
   grid-column: 1;
   grid-row: 2;
   width: 6em;
