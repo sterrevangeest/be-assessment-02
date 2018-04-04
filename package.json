@@ -1,0 +1,21 @@
+{
+  "private": true,
+  "name": "be-assessment-2",
+  "version": "1.0.0",
+  "description": "Datingwebsite",
+  "license": "ISC",
+  "repository": null,
+  "author": "Sterre van Geest",
+  "files": [
+    "index.js"
+  ],
+  "dependencies": {
+    "ejs": "^2.5.8",
+    "ejs-lint": "^0.3.0",
+    "express": "^4.16.3",
+    "nodemon": "^1.17.3"
+  },
+  "scripts": {
+    "start": "nodemon ."
+  }
+}
