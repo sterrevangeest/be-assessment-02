@@ -10,9 +10,11 @@
     "index.js"
   ],
   "dependencies": {
+    "dotenv": "^5.0.1",
     "ejs": "^2.5.8",
     "ejs-lint": "^0.3.0",
     "express": "^4.16.3",
+    "mongodb": "^3.0.5",
     "nodemon": "^1.17.3"
   },
   "scripts": {

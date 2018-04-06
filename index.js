@@ -1,6 +1,10 @@
 'use strict'
 
 var express = require('express')
+var mongo = require('mongodb')
+
+var db = null
+var url = 'mongodb://' + process.env.DB_HOST + ':'
 
 express()
     .set('view engine', 'ejs')
@@ -59,36 +63,3 @@ function profile(req, res) {
         data: data
     })
 }
-
-
-// data
-var data = [
-    {
-        name: 'Luuk',
-        age: '23 jaar',
-        place: 'Amsteram',
-        dateIdea: 'Cocktails drinken in Amsterdam, bij Tunes Bar en daarna zien we wel.',
-        category: 'romantisch'
-  },
-    {
-        name: 'Bram',
-        age: '21 jaar',
-        place: 'Haarlem',
-        dateIdea: 'Wandeling op het strand bij Wijk aan Zee',
-        category: 'romantisch'
-  },
-    {
-        name: 'Koen',
-        age: '25 jaar',
-        place: 'Utrecht',
-        dateIdea: 'Skydiven in Zoetermeer, daarna ergens iets drinken',
-        category: 'avontuur'
-  },
-  {
-      name: 'Joep',
-      age: '24 jaar',
-      place: 'Amsterdam',
-      dateIdea: 'Ik weet een heel leuk restaurant in Amsterdam, het lijkt mij leuk je mee te nemen.',
-      category: 'Romantisch'
-}
-]
