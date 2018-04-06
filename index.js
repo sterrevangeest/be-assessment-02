@@ -10,7 +10,6 @@ express()
     .get('/inbox', inbox)
     .get('/profile', profile)
     .get('/:index', detail)
-
     .listen(8000)
 
 
@@ -40,7 +39,7 @@ function detail(req, res) {
       // res.render('error.ejs', {
       //     title: '404',
       // })
-      res.write("werkt niet")
+      res.write("404 Not Found")
       res.end()
     }
 }
@@ -65,7 +64,7 @@ function profile(req, res) {
 // data
 var data = [
     {
-        name: 'Daan',
+        name: 'Luuk',
         age: '23 jaar',
         place: 'Amsteram',
         dateIdea: 'Cocktails drinken in Amsterdam, bij Tunes Bar en daarna zien we wel.',
@@ -84,5 +83,12 @@ var data = [
         place: 'Utrecht',
         dateIdea: 'Skydiven in Zoetermeer, daarna ergens iets drinken',
         category: 'avontuur'
-  }
+  },
+  {
+      name: 'Joep',
+      age: '24 jaar',
+      place: 'Amsterdam',
+      dateIdea: 'Ik weet een heel leuk restaurant in Amsterdam, het lijkt mij leuk je mee te nemen.',
+      category: 'Romantisch'
+}
 ]

@@ -63,6 +63,20 @@ header nav ul .active a {
     color: #B96AF8;
 }
 
+.about, .login {
+    background-color: transparent;
+}
+
+.about img {
+    width: 100%;
+}
+
+.login img {
+    width: 30%;
+    margin: 0 auto;
+    display: block;
+}
+
 /* MAIN */
 
 main h1 {
@@ -242,4 +256,88 @@ main .date-ideas article a:nth-child(3) {
   grid-row: 1/3;
   width: 60%;
   margin: auto auto;
+}
+
+/* FORM */
+
+main form {
+    color: white;
+}
+
+main form fieldset {
+    border: none;
+}
+
+main form fieldset legend {
+    text-align: center;
+    font-size: 2em;
+    font-weight: 600;
+}
+
+main form fieldset label, form fieldset input{
+    display: block;
+    width: 100%;
+    background-color: transparent;
+    border: none;
+    color: white;
+    font-weight: 100;
+    margin: 1em 0;
+}
+
+main form fieldset input{
+   border-bottom: 1px solid white;
+   font-size: 1em;
+}
+
+main form .submit, .home > a:nth-of-type(1) {
+    color: #B96AF8;
+    margin: 0 auto;
+    font-family: 'soleil';
+    display: block;
+    font-size: 1.5em;
+    font-weight: 700;
+    padding: .1em 3em;
+    background-color: white;
+    border-radius: 3em;
+    border:none;
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.10);
+    text-align: center;
+}
+
+.home > a:nth-of-type(1) {
+    max-width: 40%;
+}
+
+.home > a:nth-of-type(2) {
+    color: white;
+    display: block;
+    text-align: center;
+    margin: 0 auto;
+    width: 100%;
+    font-size: .8em;
+    font-weight: 100;
+    margin-top: 2em;
+}
+
+.home > a:nth-of-type(2) span {
+    font-weight: 700;
+}
+
+
+.home h2 {
+    color: white;
+    text-align: center;
+    font-size: 3em;
+    margin: 0;
+}
+
+.home p {
+    font-size: .9em;
+    margin-top: 0;
+    font-weight: 100;
+    margin-bottom: 4em;
+}
+
+::-webkit-scrollbar {
+    display: none;
 }
