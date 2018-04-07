@@ -5,9 +5,7 @@ var mongo = require('mongodb')
 
 require('dotenv').config
 
-
 var db
-console.log(db)
 // var url = 'mongodb://' + process.env.DB_HOST + ':' + process.env.DB_PORT //store localhost:27017 from .env in url
 var url = 'mongodb://localhost:27017/'
 
@@ -66,42 +64,43 @@ function matches(req, res, next) {
 }
 
 function match(req, res, next) {
-    var id = req.params.index
-    console.log(id)
+  var id = req.params.index
+  console.log(id)
 
-    var _id = new mongo.ObjectId(id)
-    console.log(_id)
+  var _id = new mongo.ObjectId(id)
+  console.log(_id)
 
-    db.collection('profile').findOne(_id,done)
+  db.collection('profile').findOne(_id,done)
 
-    // res.write( id  + '\n' + _id)
-    // res.end()
-    //
-    function done (error, data) {
-      if (error) {
-        next (error)
-      } else if (id == _id) {
-        console.log('match')
-        console.log(data)
-        res.render('matches-detail.ejs', {
-          data: data
-        })
-      }
+  // res.write( id  + '\n' + _id)
+  // res.end()
+  //
+
+  function done (error, data) {
+    if (error) {
+      next (error)
+    } else if (id == _id) {
+      console.log('match')
+      console.log(data)
+      res.render('matches-detail.ejs', {
+        data: data
+      })
     }
   }
+}
 
 function inbox(req, res) {
-    console.log("inbox")
-    res.render('inbox.ejs', {
-        title: 'inbox',
-        //data: data
-    })
+  console.log("inbox")
+  res.render('inbox.ejs', {
+      title: 'inbox',
+      //data: data
+  })
 }
 
 function profile(req, res) {
-    console.log("profile")
-    res.render('profile.ejs', {
-        title: 'profile',
-        //data: data
-    })
+  console.log("profile")
+  res.render('profile.ejs', {
+      title: 'profile',
+      //data: data
+  })
 }

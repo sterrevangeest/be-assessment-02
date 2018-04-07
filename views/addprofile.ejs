@@ -1,0 +1,80 @@
+<% include head.ejs %>
+
+<body>
+
+    <header class="login">
+        <img src="img/1024.png" alt="">
+    </header>
+
+    <main>
+        <h1>Aanmelden</h1>
+
+        <form action="#">
+            <fieldset>
+                <legend>Profiel</legend>
+                <label for="name">Naam*</label>
+                <input type="text" name="email" id="name" required>
+
+                <label for="type">Leeftijd</label>
+                <select name="type" id="type" required>
+                    <option value="leeftijd">18 jaar</option>
+                    <option value="leeftijd">19 jaar</option>
+                    <option value="leeftijd">20 jaar</option>
+                    <option value="leeftijd">21 jaar</option>
+                    <option value="leeftijd">22 jaar</option>
+                    <option value="leeftijd">23 jaar</option>
+                    <option value="leeftijd">24 jaar</option>
+                    <option value="leeftijd">25 jaar</option>
+                </select>
+
+                <label for="place">Omgeving</label>
+                <input type="text" name="place" id="place">
+
+
+            </fieldset>
+
+            <fieldset>
+               <legend>Date idee</legend>
+                <label for="date-idea">Date idee</label>
+                <input type="text" name="date-idea" id="date-idea">
+
+                <label for="type">Category</label>
+                <select name="type" id="type" required>
+                    <option value="category">Romantisch</option>
+                    <option value="cagegory">Avontuur</option>
+                    <option value="category">Categorie</option>
+                </select>
+            </fieldset>
+
+            <fieldset>
+               <legend>Interesses</legend>
+                <label for="date-idea">Date idee</label>
+                <input type="text" name="date-idea" id="date-idea">
+
+                <label for="type">Ik ben een</label>
+                <select name="type" id="type" required>
+                    <option value="category">Man</option>
+                    <option value="cagegory">Vrouw</option>
+                </select>
+
+                <label for="type">Ik ben op zoek naar een</label>
+                <select name="type" id="type" required>
+                    <option value="category">man</option>
+                    <option value="cagegory">vrouw</option>
+                    <option value="category">man en een vrouw</option>
+                </select>
+            </fieldset>
+
+            <button class="submit" type="submit">Volgende</button>
+
+        </form>
+
+    </main>
+
+    <footer>
+
+    </footer>
+
+
+    <script src="js/java.js"></script>
+</body>
