@@ -24,10 +24,12 @@ express()
     .set('view engine', 'ejs')
     .set('views', 'views')
     .use(express.static('static'))
-    .get('/', matches)
+    .get('/matches', matches)
     .get('/inbox', inbox)
     .get('/profile', profile)
     .get('/:index', match)
+    //.get('/', about)
+    //.post('/')
     .listen(8000)
 
 
@@ -82,7 +84,7 @@ function match(req, res, next) {
     } else if (id == _id) {
       console.log('match')
       console.log(data)
-      res.render('matches-detail.ejs', {
+      res.render('match.ejs', {
         data: data
       })
     }
