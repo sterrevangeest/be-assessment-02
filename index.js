@@ -6,8 +6,9 @@ var mongo = require('mongodb')
 require('dotenv').config
 
 
-var db;
-//var url = 'mongodb://' + process.env.DB_HOST + ':' + process.env.DB_PORT //store localhost:27017 from .env in url
+var db
+console.log(db)
+// var url = 'mongodb://' + process.env.DB_HOST + ':' + process.env.DB_PORT //store localhost:27017 from .env in url
 var url = 'mongodb://localhost:27017/'
 
 
@@ -25,10 +26,10 @@ express()
     .set('view engine', 'ejs')
     .set('views', 'views')
     .use(express.static('static'))
-    .get('/', all)
+    .get('/', matches)
     .get('/inbox', inbox)
     .get('/profile', profile)
-    .get('/:index', detail)
+    .get('/:index', match)
     .listen(8000)
 
 
@@ -42,16 +43,21 @@ express()
 //         })
 // }
 
+// code: https://github.com/cmda-be/course-17-18/tree/master/examples/mongodb-server by @wooorm
+// used the setup of a function that takes data from the database with 'collection'/table called
+// profile, puts that data in an array, and gives it to done()
 
-function all(req, res, next) {
-  db.collection('profile').find().toArray(done)
+function matches(req, res, next) {
+  db.collection('profile').find().toArray(done) //toArray() returns an array that contains all the documents from a cursor
+  // var test = db.collection('profile').find('name').toArray(done)
+  // console.log(test)
 
-  function done(err, data) {
-    if (err) {
-      next(err)
+  function done(error, data) {
+    if (error) {
+      next(error)
     } else {
       console.log('matches')
-      console.log(data)
+      //console.log(data)
       res.render('matches.ejs', {
         data: data
       })
@@ -59,31 +65,30 @@ function all(req, res, next) {
   }
 }
 
-
-
-function detail(req, res) {
-
+function match(req, res, next) {
     var id = req.params.index
     console.log(id)
-    var length = data.length
-    console.log(length)
 
+    var _id = new mongo.ObjectId(id)
+    console.log(_id)
 
-    if (id < length) {
-        res.statuscode = 200 // 200 OK
+    db.collection('profile').findOne(_id,done)
+
+    // res.write( id  + '\n' + _id)
+    // res.end()
+    //
+    function done (error, data) {
+      if (error) {
+        next (error)
+      } else if (id == _id) {
+        console.log('match')
+        console.log(data)
         res.render('matches-detail.ejs', {
-            title: 'matches-in-detail',
-            data: data
+          data: data
         })
-    } else {
-      res.statuscode = 404 // 404 Not Found
-      // res.render('error.ejs', {
-      //     title: '404',
-      // })
-      res.write("404 Not Found")
-      res.end()
+      }
     }
-}
+  }
 
 function inbox(req, res) {
     console.log("inbox")
