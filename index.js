@@ -2,6 +2,9 @@
 
 var express = require('express')
 var mongo = require('mongodb')
+// bodyPerser: reads input from a form and puts that in object which is accessable through req.body
+var bodyParser = require('body-parser')
+
 
 require('dotenv').config
 
@@ -23,13 +26,21 @@ mongo.MongoClient.connect(url, function(err,client){
 express()
     .set('view engine', 'ejs')
     .set('views', 'views')
+    .use(bodyParser.urlencoded({extended: true}))
     .use(express.static('static'))
+    .get('/', about)
     .get('/matches', matches)
     .get('/inbox', inbox)
     .get('/profile', profile)
+
+    .get('/login', loadLogin)
+    .post('/login', login)
+
+    .get('/signUp', loadSignUp)
+    .post('/signUp', signUp)
+
+
     .get('/:index', match)
-    //.get('/', about)
-    //.post('/')
     .listen(8000)
 
 
@@ -105,4 +116,85 @@ function profile(req, res) {
       title: 'profile',
       //data: data
   })
+}
+
+function about(req, res) {
+  console.log("about")
+  res.render('about.ejs', {
+      title: 'profile',
+      //data: data
+  })
+}
+
+function login(req, res) {
+  console.log("login")
+  res.render('login.ejs', {
+      title: 'profile',
+      //data: data
+  })
+}
+
+function loadSignUp(req, res, next) {
+  res.render('signUp.ejs')
+}
+
+function signUp(req, res, next) {
+  console.log('signUp')
+
+  db.collection('profile').insertOne({
+    firstName: req.body.firstName,
+    lastName: req.body.lastName,
+    email: req.body.email,
+    password: req.body.password,
+    name: req.body.name,
+    age: req.body.age,
+    place: req.body.place,
+    dateIdea: req.body.dateIdea,
+    category: req.body.category,
+    sex: req.body.sex,
+    lookingFor: req.body.lookingFor
+  }, done)
+
+
+  function done (error, data){
+    if (error) {
+      next(error)
+    } else {
+      res.redirect('/' + data.insertedId) //AANPASSEEEENNNNNNNNNNN
+    }
+  }
+}
+
+
+function loadLogin(req, res, next) {
+  res.render('login.ejs')
+}
+
+function login (req,res,next){
+
+  console.log('yes baby')
+
+  var email = req.body.email
+  console.log(email)
+  var password = req.body.password
+  console.log(password)
+
+  db.collection('profile').findOne({
+  email: email
+  }, done)
+
+  function done (error, user, data){
+
+    if (error) {
+      console.log('error')
+    } else if (user && user.password === password) {
+      console.log('password is correct, login')
+
+      res.redirect('/profile')
+
+    } else {
+      console.log ('FOUT')
+    }
+
+  }
 }
