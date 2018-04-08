@@ -2,8 +2,8 @@ body {
     font-family: "soleil";
     overflow-x: hidden;
     background: linear-gradient(#A033F6,#831FF6);
-    height: 100vh;
     padding: 0 .2em;
+    height: 250vh;
 
 }
 
@@ -24,7 +24,7 @@ p {
   margin: 0;
 }
 
-
+@media (min-width: 10em){
 /* HEADER */
 
 header {
@@ -290,22 +290,23 @@ main form fieldset input{
 }
 
 main form .submit, .home > a:nth-of-type(1) {
-    color: #B96AF8;
-    margin: 0 auto;
-    font-family: 'soleil';
-    display: block;
-    font-size: 1.5em;
-    font-weight: 700;
-    padding: .1em 3em;
-    background-color: white;
-    border-radius: 3em;
-    border:none;
-    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.10);
-    text-align: center;
+  color: #B96AF8;
+  margin: 0 auto;
+  font-family: 'soleil';
+  display: block;
+  font-size: 1.5em;
+  font-weight: 700;
+  padding: .1em 1em;
+  background-color: white;
+  border-radius: 3em;
+  border: none;
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.10);
+  text-align: center;
+  max-width: 55%;
 }
 
 .home > a:nth-of-type(1) {
-    max-width: 40%;
+
 }
 
 .home > a:nth-of-type(2) {
@@ -340,4 +341,35 @@ main form .submit, .home > a:nth-of-type(1) {
 
 ::-webkit-scrollbar {
     display: none;
+}
+
+
+
+}
+@media (min-width: 35em){
+
+  body {
+    margin: 0 5em;
+  }
+
+}
+@media (min-width: 45em){
+
+  body {
+    margin: 0 15em;
+  }
+}
+
+@media (min-width: 60em){
+
+  body {
+    margin: 0 20em;
+  }
+}
+
+@media (min-width: 77em){
+
+  body {
+    margin: 0 30em;
+  }
 }
