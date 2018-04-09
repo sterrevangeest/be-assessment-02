@@ -18,7 +18,7 @@ npm install
 npm start
 ```
 
-**Important :warning:** this website is still in progress, so some things may not work like you would expect them to work.
+**Important** :warning:this website is still in progress, so some things may not work like you would expect them to work.
 
 ## To-do
 
