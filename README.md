@@ -65,6 +65,9 @@ use mydatingwebsite
 - [Mongodb](https://github.com/mongodb/mongo) 
 - [Nodemon](https://github.com/remy/nodemon) 
 
+## Backend cource
+
+This datingwebsite is part of an assessment that belongs to the [Backend](https://github.com/cmda-be/course-17-18n) course that is given @CMDA. 
 
 
 
