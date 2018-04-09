@@ -18,19 +18,7 @@ npm install
 npm start
 ```
 
-**Important :warning:** this website is still in progress, so some things may not work like you would expect them to work (see to-do list). 
-
-## Pages 
-
-`localhost:8000` 'starting' page, with links to login and sign-up forms.
-
-`localhost:8000/matches` page with all your matches
-
-`localhost:8000/inbox` page with all your chats
-
-`localhost:8000/profile` page with your profile
-
-in case you got lost
+**Important :warning:** this website is still in progress, so some things may not work like you would expect them to work.
 
 ## To-do
 
@@ -42,6 +30,47 @@ in case you got lost
 - [ ] Matching users
 - [ ] Starting a chat
 - [ ] Chatting
+
+
+## Routes
+in case you got lost: 
+
+`localhost:8000` 'starting' page, with links to login and sign-up forms.
+
+`localhost:8000/matches` page with all your matches
+
+`localhost:8000/inbox` page with all your chats
+
+`localhost:8000/profile` page with your profile
+
+## Database 
+
+**Meet Me** stores data in a MongoDB. 
+To run the database, open a new tab and: 
+
+```
+brew install 
+brew install mongodb
+brew services start mongodb
+mongod --dbpath db
+mongo
+use mydatingwebsite
+```
+
+## Packages 
+
+- [Ejs](https://github.com/tj/ejs) 
+- [Ejs-lint](https://github.com/RyanZim/EJS-Lint) 
+- [Express](https://github.com/expressjs/express) 
+- [Mongodb](https://github.com/mongodb/mongo) 
+- [Nodemon](https://github.com/remy/nodemon) 
+
+
+
+
+
+
+
 
 
 
