@@ -67,7 +67,7 @@ use mydatingwebsite
 
 ## Backend course
 
-This datingwebsite is part of an assessment that belongs to the [Backend](https://github.com/cmda-be/course-17-18n) course that is given @CMDA. 
+This datingwebsite is part of an assessment that belongs to the [Backend](https://github.com/cmda-be/course-17-18n) course which is given @CMDA. 
 
 
 
