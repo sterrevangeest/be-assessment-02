@@ -3,29 +3,71 @@
 <body>
 
     <header class="login">
-    <img src="img/1024.png" alt="">
+        <img src="img/1024.png" alt="">
     </header>
 
     <main>
         <h1>Aanmelden</h1>
 
-        <form action="#">
+        <form action="/signUp" method='post'>
             <fieldset>
-                <legend>Aanmelden</legend>
-                <label for="email">Voornaam*</label>
-                <input type="text" name="email" id="email" required>
+                <legend>Profiel</legend>
+                <label for="name">Naam*</label>
+                <input type="text" name="name" id="name" required>
 
-                <label for="name">Achternaam</label>
-                <input type="text" name="name">
+                <label for="age">Leeftijd</label>
+                <select name="age" required>
+                    <option value="18">18 jaar</option>
+                    <option value="19">19 jaar</option>
+                    <option value="20">20 jaar</option>
+                    <option value="21">21 jaar</option>
+                    <option value="22">22 jaar</option>
+                    <option value="23">23 jaar</option>
+                    <option value="24">24 jaar</option>
+                    <option value="25">25 jaar</option>
+                    <option value="26">26 jaar</option>
+                    <option value="27">27 jaar</option>
+                    <option value="28">28 jaar</option>
+                </select>
 
-                <label for="email">E-mail*</label>
-                <input type="text" name="email" id="email" required>
+                <label for="place">Omgeving</label>
+                <input type="text" name="place">
+            </fieldset>
 
-                <label for="name">Wachtwoord*</label>
-                <input type="password" name="name" required>
-            </fieldset> 
+            <fieldset>
+               <legend>Date idee</legend>
+                <label for="dateIdea">Date idee</label>
+                <input type="text" name="dateIdea">
 
-            <button class="submit" type="submit">Aanmelden</button>
+                <label for="category">Category</label>
+                <select name="category" required>
+                    <option value="romantic">Romantisch</option>
+                    <option value="adrenaline">Adrenaline</option>
+                    <option value="wellness">Wellness</option>
+                    <option value="nightout">Avond uit</option>
+                    <option value="culture">Cultuur</option>
+                    <option value="event">Evenement</option>
+                </select>
+            </fieldset>
+
+            <fieldset>
+               <legend>Interesses</legend>
+
+                <label for="sex">Ik ben een</label>
+                <select name="sex" required>
+                    <option value="male">Man</option>
+                    <option value="female">Vrouw</option>
+                </select>
+
+                <label for="lookingFor">Ik ben op zoek naar een</label>
+                <select name="lookingFor" required>
+                    <option value="male">man</option>
+                    <option value="female">vrouw</option>
+                    <option value="both">man en een vrouw</option>
+                </select>
+            </fieldset>
+
+            <button class="submit" type="submit">Volgende</button>
 
         </form>
 
