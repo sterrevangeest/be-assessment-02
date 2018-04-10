@@ -6,22 +6,22 @@ var mongo = require('mongodb')
 var bodyParser = require('body-parser')
 
 
-require('dotenv').config
-
-var db
-// var url = 'mongodb://' + process.env.DB_HOST + ':' + process.env.DB_PORT //store localhost:27017 from .env in url
-var url = 'mongodb://localhost:27017/'
-
+require('dotenv').config()
 
 // code: https://github.com/cmda-be/course-17-18/tree/master/examples/mongodb-server by Titus Wormer
-mongo.MongoClient.connect(url, function(err,client){
-  if (err) {
-    throw err
+var db = null
+//store localhost:27017 from .env in url
+var url = 'mongodb://' + process.env.DB_HOST + ':' + process.env.DB_PORT
+//var url = 'mongodb://localhost:27017/'
+
+mongo.MongoClient.connect(url, function (error, client) {
+  if (error) {
+    throw error
   }
-  db = client.db('mydatingsite')
-  console.log("YEAH LETZ GO")
+
+  db = client.db(process.env.DB_NAME)
 })
-  //end
+//end
 
 express()
     .set('view engine', 'ejs')
@@ -171,9 +171,7 @@ function loadLogin(req, res, next) {
 }
 
 function login (req,res,next){
-
   console.log('yes baby')
-
   var email = req.body.email
   console.log(email)
   var password = req.body.password
