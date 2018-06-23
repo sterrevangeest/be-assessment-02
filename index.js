@@ -1,6 +1,6 @@
 'use strict'
 
-var session = require('express-session')
+//var session = require('express-session')
 var express = require('express')
 var mongo = require('mongodb')
 // bodyPerser: reads input from a form and puts that in object which is accessable through req.body
@@ -28,22 +28,27 @@ express()
     .set('views', 'views')
     .use(bodyParser.urlencoded({extended: true}))
     .use(express.static('static'))
-    .use(session({
-    resave: false,
-    saveUninitialized: true,
-    secret: process.env.SESSION_SECRET
-    }))
-    .get('/', about)
+    // .use(session({
+    // resave: false,
+    // saveUninitialized: true,
+    // secret: process.env.SESSION_SECRET
+    // }))
+
     .get('/matches', matches)
+
     .get('/inbox', inbox)
     .get('/profile', profile)
+    .get('/', about)
+
     .get('/login', loadLogin)
     .post('/login', login)
+
     .get('/signUp', loadSignUp)
     .post('/signUp', signUp)
     .get('/:index', match)
+    .delete('/:index', remove)
 
-    .listen(8000)
+    .listen(4000)
 
 // code: https://github.com/cmda-be/course-17-18/tree/master/examples/mongodb-server by @wooorm
 // used the setup of a function that takes data from the database with 'collection'/table called
@@ -140,7 +145,7 @@ function login (req,res){
       throw error
     } else if (user && user.password === password) {
         console.log('password is correct, login')
-        req.session.user = {email: email}
+        // req.session.user = {email: email}
         res.redirect('/profile')
     } else if (user && user.password != password){
         res.statusCode = 401 // Unauthorized
@@ -164,19 +169,19 @@ function loadSignUp(req, res) {
 function signUp(req, res) {
   console.log('signUp')
 
-  db.collection('profile').insertOne({
-    firstName: req.body.firstName,
-    lastName: req.body.lastName,
-    email: req.body.email,
-    password: req.body.password,
-    name: req.body.name,
-    age: req.body.age,
-    place: req.body.place,
-    dateIdea: req.body.dateIdea,
-    category: req.body.category,
-    sex: req.body.sex,
-    lookingFor: req.body.lookingFor
-  }, done)
+  // db.collection('profile').insertOne({
+  //   firstName: req.body.firstName,
+  //   lastName: req.body.lastName,
+  //   email: req.body.email,
+  //   password: req.body.password,
+  //   name: req.body.name,
+  //   age: req.body.age,
+  //   place: req.body.place,
+  //   dateIdea: req.body.dateIdea,
+  //   category: req.body.category,
+  //   sex: req.body.sex,
+  //   lookingFor: req.body.lookingFor
+  // }, done)
 
 
   function done (error, data){
@@ -184,6 +189,21 @@ function signUp(req, res) {
       next(error)
     } else {
       res.redirect('/' + data.insertedId) //aanpassen
+    }
+  }
+}
+
+function remove(req, res, next) {
+  var id = req.params.id
+  var _id = new mongo.ObjectId(id)
+
+  db.collection('mydatingsite').deleteOne(_id,done)
+
+  function done(err) {
+    if (err) {
+      next(err)
+    } else {
+      res.json({status: 'ok'})
     }
   }
 }
