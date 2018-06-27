@@ -9,7 +9,7 @@
     <main>
         <h1>Aanmelden</h1>
 
-        <form action="/signUp" method='post'>
+        <form action="/signUp" method="post" enctype="multipart/form-data">
 
           <fieldset>
               <legend>Inlog gegevens</legend>
@@ -74,6 +74,17 @@
                     <option value="female">vrouw</option>
                     <option value="both">man en een vrouw</option>
                 </select>
+            </fieldset>
+
+            <fieldset>
+
+               <legend>Upload een foto</legend>
+               <input
+               name=profilepicture
+               type=file
+               accept=image/*
+               >
+
             </fieldset>
 
             <button class="submit" type="submit">Volgende</button>

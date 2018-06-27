@@ -266,6 +266,7 @@ main form {
 
 main form fieldset {
     border: none;
+    margin: 3em 0;
 }
 
 main form fieldset legend {

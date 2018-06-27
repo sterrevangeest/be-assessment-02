@@ -16,7 +16,10 @@
       <h1>Profiel</h1>
       <button id="settings"></button>
       <article class="profile">
-        <img src="img/user4.png" alt="">
+        <img
+  alt
+  src="<%= data.profilepicture %>"
+>
         <h2><%= data.name %></h2>
         <p> <span><%= data.age %></span>, omgeving <span><%= data.place %></span> </p>
       </article>
@@ -29,6 +32,7 @@
       </article>
     </section>
     <a href="/logout">logout</a>
+    <a href="/addphoto">voeg een foto toe</a>
     </section>
 
     </main>

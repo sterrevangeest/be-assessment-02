@@ -5,6 +5,8 @@ var express = require('express')
 var mongo = require('mongodb')
 var bodyParser = require('body-parser') // bodyPerser: reads input from a form and puts that in object which is accessable through req.body
 var argon2 = require('argon2')
+var multer = require('multer')
+
 
 require('dotenv').config()
 
@@ -21,6 +23,9 @@ mongo.MongoClient.connect(url, function (error, client) {
       db = client.db(process.env.DB_NAME)
   })
 //end
+
+var upload = multer({dest: 'static/'})
+
 
 express()
   .set('view engine', 'ejs')
@@ -41,9 +46,10 @@ express()
   .get('/login', loadLogin)
   .post('/login', login)
   .get('/signUp', loadSignUp)
-  .post('/signUp', signUp)
+  .post('/signUp', upload.single('profilepicture'), signUp)
   .get('/:index', match)
   .delete('/:id', remove)
+
 
   .use(notFound)
   .listen(8000)
@@ -188,7 +194,8 @@ function signUp(req, res, next) {
           dateIdea: req.body.dateIdea,
           category: req.body.category,
           sex: req.body.sex,
-          lookingFor: req.body.lookingFor
+          lookingFor: req.body.lookingFor,
+          profilepicture: req.file ? req.file.filename : null,
       }, oninsert)
 
       function oninsert(error, user) {
