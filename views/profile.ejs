@@ -17,22 +17,18 @@
       <button id="settings"></button>
       <article class="profile">
         <img src="img/user4.png" alt="">
-        <h2>Lisa</h2>
-        <p><span>18 jaar</span>, omgeving <span>Amsterdam</span> </p>
+        <h2><%= data.name %></h2>
+        <p> <span><%= data.age %></span>, omgeving <span><%= data.place %></span> </p>
       </article>
 
       <section class="date-ideas-profile">
         <h3>Date ideeën</h3>
           <article>
-            <p>"Ik houd erg van skien en wil daarom graag met jou een dagje skien in een skihal!""</p>
-            <a class="category" href="#">#actief</a>
-            <!-- <a href="#"> <img src="img/speech-bubble.svg" alt=""></a> -->
+            <p>"<%= data.dateIdea %>"</p>
+            <a class="category" href="#">#<%= data.category %></a>
       </article>
     </section>
-
-    <section>
-
-
+    <a href="/logout">logout</a>
     </section>
 
     </main>
@@ -40,6 +36,8 @@
 
 
 
-</body>
+    </body>
+    <section>
+
 
 </html>
