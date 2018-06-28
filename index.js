@@ -151,7 +151,7 @@ function login(req, res) {
 
 
 // SIGN UP
-function loadSignUp(req, res) {
+function loadSignUp(req, res, next) {
   res.render('signUp.ejs')
 }
 
@@ -238,22 +238,34 @@ function profile(req, res, next) {
 }
 
 // INBOX
-function inbox(req, res) {
+function inbox(req, res, next) {
   console.log("inbox")
   res.render('inbox.ejs', {
       title: 'inbox'
   })
 }
 
-
 //ABOUT
-function about(req, res) {
+function about(req, res, next) {
   console.log("about")
   res.render('about.ejs', {
       title: 'about'
   })
 }
 
+//LOGOUT
+//bron: https://github.com/cmda-be/course-17-18/blob/master/examples/auth-server/index.js#L1
+function logout(req, res, next) {
+  req.session.destroy(function (error) {
+    if (error) {
+      next(error)
+    } else {
+      res.redirect('/')
+    }
+  })
+}
+
+//REMOVE
 function remove(req, res, next) {
   var id = req.params.id
   var _id = new mongo.ObjectId(id)
@@ -271,18 +283,7 @@ function remove(req, res, next) {
   }
 }
 
-//bron: https://github.com/cmda-be/course-17-18/blob/master/examples/auth-server/index.js#L1
-function logout(req, res, next) {
-  req.session.destroy(function (error) {
-    if (error) {
-      next(error)
-    } else {
-      res.redirect('/')
-    }
-  })
-}
-
-
+//NOT FOUND
 function notFound(req, res, next) {
   res.write('404')
   res.end()

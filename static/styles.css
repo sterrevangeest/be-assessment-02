@@ -160,6 +160,15 @@ main article p {
   margin: .5em 0 .2em 0;
 }
 
+#text {
+  display: none;
+}
+
+#text.active {
+  display: inline;
+}
+
+
 /* INBOX */
 
 main > p {

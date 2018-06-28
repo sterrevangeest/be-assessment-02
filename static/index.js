@@ -33,3 +33,14 @@ function onremove(ev) {
     throw new Error('Could not delete!')
   }
 }
+
+//addEventListener voor berichten
+var speechbubble = document.getElementById('speechbubble')
+var text = document.getElementById('text')
+
+console.log(speechbubble)
+
+
+speechbubble.addEventListener('click', function () {
+    text.classList.add('active')
+})

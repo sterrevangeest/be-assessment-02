@@ -22,8 +22,10 @@
       <% for (var index = 0; index < data.length; index++) { %>
       <article class="active"><a href="/<%=data[index]._id%> %>">
         <div>
-          <img src="../static/img/user1.png" alt="">
-          <!-- <img src="<%= data.profilepicture %>"> -->
+          <img
+            alt
+            src="<%= data.profilepicture %>"
+          >
           <h2><%= data[index].name %></h2>
 
         </div>
