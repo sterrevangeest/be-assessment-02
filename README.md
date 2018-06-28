@@ -25,7 +25,7 @@ npm start
 - [x] Getting server and database working (hello world)
 - [x] Showing data from database in ejs
 - [ ] Upload, modify and delete data
-- [ ] Users can log in and sign up (using sessions)
+- [x] Users can log in and sign up (using sessions)
 - [ ] Users can search
 - [ ] Matching users
 - [ ] Starting a chat
