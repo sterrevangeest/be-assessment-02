@@ -270,7 +270,7 @@ function remove(req, res, next) {
   var id = req.params.id
   var _id = new mongo.ObjectId(id)
 
-  db.collection('profile').deleteOne(_id, done)
+  db.collection('profile').deleteOne({_id: _id}, done)
 
   function done(error) {
     if (error) {
